@@ -1,20 +1,18 @@
 /* Placeholder */
-
 body {
-  margin: 150px;
-  display: flex;
-}
-.header {
-  text-align: center;
+  margin: auto;
+  max-width: 750px;
+  justify-content: center;
 }
 
 section {
-  text-align: center;
+  justify-content: center;
   padding: 20px;
   border: solid black 1px;
   margin: 10px;
+  display:flex;
 }
 
-.bookmark {
-  flex-direction: row;
+.flex-column {
+  flex-direction: column;
 }
