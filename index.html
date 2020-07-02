@@ -2,10 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='index.css'/>
+    <title>Chrissy's Bookmark App</title>
+    <script 
+        type='text/javascript'
+        src='https://cdnjs.cloudflare.com/ajax/libs/cuid/1.3.8/browser-cuid.min.js'>
+    </script>
+    <script
+        type='text/javascript'
+        src='https://code.jquery.com/jquery-3.2.1.min.js'>
+    </script>
 </head>
 <body>
-    
+    <main>
+        <!-- Initial view plan -->
+        <section class="header">
+            <h1>Chrissy's Bookmark App</h1>
+            <button type="submit" name="new-bookmark" id="new-bookmark">Add Bookmark</button>
+            <label for="bookmark-filter">Filter by rating:</label>
+            <select name="bookmark-filter" id="bookmark-filter">
+                <option value="1">&hearts;</option>
+                <option value="2">&hearts;&hearts;</option>
+                <option value="3">&hearts;&hearts;&hearts;</option>
+                <option value="4">&hearts;&hearts;&hearts;&hearts;</option>
+                <option value="5">&hearts;&hearts;&hearts;&hearts;&hearts;</option>
+            </select>
+        </section>
+        <section class="bookmark-list">
+            <div class="bookmark">
+                <p class="bookmark-name">Sample Bookmark Name</p>
+                <p class="bookmark-rating">&hearts;&hearts;</p>
+                <button type="submit" name="delete-bookmark" id="delete-bookmark">Delete</button>
+            </div>
+        </section>
+        <!-- Expanded view plan -->
+        <section class="expanded-bookmark">
+                <p class="bookmark-name">Sample Bookmark Name</p>
+                <p class="bookmark-rating">&hearts;&hearts;</p>
+                <a class="bookmark-link" href="https://google.com">Visit Site</a>
+                <p class="bookmark-description">Beepboopbeep</p>
+                <button type="submit" name="return-to-list" id="return-to-list">Back</button>
+        </section>
+        <!-- Adding view plan -->
+        <section class="adding-form">
+            <label for="new-bookmark-name">Name:</label>
+            <input type="text" id="new-bookmark-name" name="new-bookmark-name">
+            <select name="new-bookmark-rating" id="new-bookmark-rating">
+                <option value="1">&hearts;</option>
+                <option value="2">&hearts;&hearts;</option>
+                <option value="3">&hearts;&hearts;&hearts;</option>
+                <option value="4">&hearts;&hearts;&hearts;&hearts;</option>
+                <option value="5">&hearts;&hearts;&hearts;&hearts;&hearts;</option>
+            </select>
+            <label for="new-bookmark-link">URL:</label>
+            <input type="text" id="new-bookmark-link" name="new-bookmark-link">
+            <label for="new-bookmark-desc">Description:</label>
+            <input type="text" id="new-bookmark-desc" name="new-bookmark-desc">
+            <button type="submit" name="submit-new-bookmark" id="submit-new-bookmark">Submit</button>
+            <button type="submit" name="cancel-new-bookmark" id="cancel-new-bookmark">Cancel</button>
+        </section>
+
+    </main>
 </body>
 </html>

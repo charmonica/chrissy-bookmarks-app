@@ -1,1 +1,20 @@
 /* Placeholder */
+
+body {
+  margin: 150px;
+  display: flex;
+}
+.header {
+  text-align: center;
+}
+
+section {
+  text-align: center;
+  padding: 20px;
+  border: solid black 1px;
+  margin: 10px;
+}
+
+.bookmark {
+  flex-direction: row;
+}

@@ -1,0 +1,30 @@
+Initial view - list of bookmarks that are condensed, with Add Bookmark & Filter at the top.
+    ***Bookmarks in this view are simply Name/Rating/Delete (submit button).
+    ***Delete button should remove from render & API object.
+    ***First group beneath header is a submit button and a select button for adding/filtering respectively.
+
+Uncompressed view - clicking on a bookmark shifts to a detailed view that includes web URL, description, and back-to-list (submit button).
+    ***Uncompressed view replaces bookmark list/top buttons, leaves the header.
+
+Adding view - clicking Add Bookmark at top replaces the bookmark list, similarly to the Uncompressed view. Three input forms (Name/URL/Description) and a select button for rating.
+    ***Name and description both become strings, URL becomes active link. Maybe just "URL".
+    ***Select drop-down assigns a value to the bookmark that needs to be held and compared to for filter function. Appears in Initial and uncompressed views as a string.
+
+Filtered view - can rule out bookmarks with an assigned value (rating) lower than the one taken from the initial view's filter select button.
+    ***Selecting a 3 value will remove 2's and 1's, 5 would display nothing but 5's.
+    ***Maybe just apply .hidden to the entries, hiding them. Alternatively use filter, Katie style.
+
+
+******CODE MAP******
+
+index.html -- Bare bones, DOM manipulation fills it in.
+
+index.css -- Derp.
+
+index.js -- Just the main() function, setting up the render.
+
+api.js -- Retrieve bookmarks, create bookmarks, delete bookmarks, MAYBE edit bookmarks.
+
+bookmarks-list.js -- Main HTML generation, event handlers, etc.
+
+store.js -- code dealing with navigating the bookmark objects.
