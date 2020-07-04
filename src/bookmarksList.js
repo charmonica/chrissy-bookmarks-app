@@ -10,7 +10,7 @@ const templateGenerator = function() {
           <h1>Chrissy's Bookmark App</h1>
       </section>
     </header>
-    <section class="adding-form flex-wrapper flex-column">
+    <section class="adding-form flex-wrapper flex-column borderless">
         <div class="name-and-rating flex-row">
           <form class="newbookmark-form">
               <label for="new-bookmark-name">Name:</label>
@@ -31,6 +31,8 @@ const templateGenerator = function() {
           </div>
           <div class="URL-label">
             <label for="new-bookmark-link">URL:</label>
+          </div>
+          <div class="URL-content">
             <input class="newBookmarkLink" type="text" id="new-bookmark-link" name="new-bookmark-link">
           </div>
           <div class="new-bookmark-buttons flex-row">
@@ -47,7 +49,7 @@ const templateGenerator = function() {
             <h1>Chrissy's Bookmark App</h1>
         </section>
       </header>
-        <section class="flex-wrapper flex-row">
+        <section class="flex-wrapper flex-row borderless">
             <div class="add-bookmark-button">
               <button class="newBookmark" type="submit" name="new-bookmark" id="new-bookmark">Add Bookmark</button>
             </div>
@@ -91,7 +93,7 @@ const deleteButton = function() {
 };
 
 const submitNewBookmark = function() {
-  $('main').on('submit', '.submitNewBookmark', function() {
+  $('main').on('click', '.submitNewBookmark', function() {
     console.log('submit fired')
     event.preventDefault();
     const bookmarkName = $('.newBookmarkName').val();
