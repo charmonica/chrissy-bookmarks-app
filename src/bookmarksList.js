@@ -5,46 +5,66 @@ const templateGenerator = function() {
   if (store.addBookmarkForm === true) {
     console.log('addBookmark is true!');
     return `
-      <section class="header">
-        <div class="flex-column">
+    <header class="flex-wrapper">
+      <section class="title">
           <h1>Chrissy's Bookmark App</h1>
-        </div>
       </section>
-      <form class="adding-form">
-        <label for="new-bookmark-name">Name:</label>
-        <input class="newBookmarkName" type="text" id="new-bookmark-name" name="new-bookmark-name">
-        <select class="newBookmarkRating" name="new-bookmark-rating" id="new-bookmark-rating">
-          <option value="1">&hearts;</option>
-          <option value="2">&hearts;&hearts;</option>
-          <option value="3">&hearts;&hearts;&hearts;</option>
-          <option value="4">&hearts;&hearts;&hearts;&hearts;</option>
-          <option value="5">&hearts;&hearts;&hearts;&hearts;&hearts;</option>
-        </select>
-        <label for="new-bookmark-link">URL:</label>
-        <input class="newBookmarkLink" type="text" id="new-bookmark-link" name="new-bookmark-link">
-        <label for="new-bookmark-desc">Description:</label>
-        <textarea class="newBookmarkDesc" id="new-bookmark-desc" name="new-bookmark-desc" rows="4"></textarea>
-        <button class="submitNewBookmark" type="submit" name="submit-new-bookmark" id="submit-new-bookmark">Submit</button>
-        <button class="cancelNewBookmark" type="submit" name="cancel-new-bookmark" id="cancel-new-bookmark">Cancel</button>
-      </form>
-      `} else {
-      console.log('Hi the sequel');
-      return `
-        <section class="header">
-          <div class="flex-column">
-            <h1>Chrissy's Bookmark App</h1>
-            <button class="newBookmark" type="submit" name="new-bookmark" id="new-bookmark">Add Bookmark</button>
-            <label for="bookmark-filter">Filter by rating:</label>
-            <select class="bookmarkFilter" name="bookmark-filter" id="bookmark-filter">
-              <option value="0">Filter Bookmarks</option>
+    </header>
+    <section class="adding-form flex-wrapper flex-column">
+        <div class="name-and-rating flex-row">
+          <form class="newbookmark-form">
+              <label for="new-bookmark-name">Name:</label>
+              <input class="newBookmarkName" type="text" id="new-bookmark-name" name="new-bookmark-name">
+            <select class="newBookmarkRating" name="new-bookmark-rating" id="new-bookmark-rating">
               <option value="1">&hearts;</option>
               <option value="2">&hearts;&hearts;</option>
               <option value="3">&hearts;&hearts;&hearts;</option>
               <option value="4">&hearts;&hearts;&hearts;&hearts;</option>
               <option value="5">&hearts;&hearts;&hearts;&hearts;&hearts;</option>
             </select>
-            <button class="resetFilter" type="submit" name="reset-filter" id="reset-filter">Reset Filter</button>
           </div>
+          <div class="description-label"
+            <label for="new-bookmark-desc">Description:</label>
+          </div>
+          <div class="description-entry">
+            <textarea class="newBookmarkDesc" id="new-bookmark-desc" name="new-bookmark-desc" rows="4" placeholder="Description"></textarea>
+          </div>
+          <div class="URL-label">
+            <label for="new-bookmark-link">URL:</label>
+            <input class="newBookmarkLink" type="text" id="new-bookmark-link" name="new-bookmark-link">
+          </div>
+          <div class="new-bookmark-buttons flex-row">
+            <button class="submitNewBookmark" type="submit" name="submit-new-bookmark" id="submit-new-bookmark">Submit</button>
+            <button class="cancelNewBookmark" type="submit" name="cancel-new-bookmark" id="cancel-new-bookmark">Cancel</button>
+          </div>
+        </form>
+      </section>
+      `} else {
+      console.log('Hi the sequel');
+      return `
+      <header class="flex-wrapper flex-column">
+        <section class="title">
+            <h1>Chrissy's Bookmark App</h1>
+        </section>
+      </header>
+        <section class="flex-wrapper flex-row">
+            <div class="add-bookmark-button">
+              <button class="newBookmark" type="submit" name="new-bookmark" id="new-bookmark">Add Bookmark</button>
+            </div>
+            <div class="filter-select flex-column">
+              <label for="bookmark-filter">Filter by rating:</label>
+              <select class="bookmarkFilter" name="bookmark-filter" id="bookmark-filter">
+                <option value="0">Filter Bookmarks</option>
+                <option value="1">&hearts;</option>
+                <option value="2">&hearts;&hearts;</option>
+                <option value="3">&hearts;&hearts;&hearts;</option>
+                <option value="4">&hearts;&hearts;&hearts;&hearts;</option>
+                <option value="5">&hearts;&hearts;&hearts;&hearts;&hearts;</option>
+              </select>
+            </div>
+            <div class="filter-reset">
+              <button class="resetFilter" type="submit" name="reset-filter" id="reset-filter">Reset Filter</button>
+            </div>
         </section>
   `};
 };
@@ -71,7 +91,8 @@ const deleteButton = function() {
 };
 
 const submitNewBookmark = function() {
-  $('main').on('submit', '.adding-form', function() {
+  $('main').on('submit', '.submitNewBookmark', function() {
+    console.log('submit fired')
     event.preventDefault();
     const bookmarkName = $('.newBookmarkName').val();
     const bookmarkURL = $('.newBookmarkLink').val();
@@ -102,10 +123,14 @@ const bookmarkItem = function(bookmark) {
   return `
   <section id="${bookmark.id}" class="single-bookmark">
     <div class="bookmark-info">
-      <p class="bookmark-name">${bookmark.title}</p>
-      <p class="bookmark-rating">${bookmark.rating}</p>
-      <button class="deleteBookmark" type="submit" name="delete-bookmark" id="${bookmark.id}">Delete</button>
-      <button class="expandBookmark" type="submit" name="expand-bookmark" id="${bookmark.id}">Toggle Details</button>
+      <div class="rating-title">
+        <p class="bookmark-name">${bookmark.title}</p>
+        <p class="bookmark-rating">${bookmark.rating}</p>
+      </div>
+      <div class="bookmark-buttons flex-column">
+        <button class="deleteBookmark" type="submit" name="delete-bookmark" id="${bookmark.id}">Delete</button>
+        <button class="expandBookmark" type="submit" name="expand-bookmark" id="${bookmark.id}">Toggle Details</button>
+      </div>
       <div class="hidden" id="${bookmark.id}-expandedInfo">
         <p class="bookmark-description">${bookmark.desc}</p>
         <a href="${bookmark.url}" id="bookmark-url">Visit</a>
