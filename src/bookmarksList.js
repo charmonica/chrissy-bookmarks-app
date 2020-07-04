@@ -14,8 +14,8 @@ const templateGenerator = function() {
         <div class="name-and-rating flex-row">
           <form class="newbookmark-form">
               <label for="new-bookmark-name">Name:</label>
-              <input class="newBookmarkName" type="text" id="new-bookmark-name" name="new-bookmark-name">
-            <select class="newBookmarkRating" name="new-bookmark-rating" id="new-bookmark-rating">
+              <input class="newBookmarkName" type="text" id="new-bookmark-name" name="new-bookmark-name" isRequired>
+            <select class="newBookmarkRating" name="new-bookmark-rating" id="new-bookmark-rating" isRequired>
               <option value="1">&hearts;</option>
               <option value="2">&hearts;&hearts;</option>
               <option value="3">&hearts;&hearts;&hearts;</option>
@@ -33,7 +33,7 @@ const templateGenerator = function() {
             <label for="new-bookmark-link">URL:</label>
           </div>
           <div class="URL-content">
-            <input class="newBookmarkLink" type="text" id="new-bookmark-link" name="new-bookmark-link">
+            <input class="newBookmarkLink" type="text" id="new-bookmark-link" name="new-bookmark-link" isRequired>
           </div>
           <div class="new-bookmark-buttons flex-row">
             <button class="submitNewBookmark" type="submit" name="submit-new-bookmark" id="submit-new-bookmark">Submit</button>
@@ -81,7 +81,6 @@ const addBookmark = function() {
 const deleteButton = function() {
   $('main').on('click', '.deleteBookmark', function() {
     console.log('delete is called' + event.target.id);
-    // const id = getItemIdFromElement(event.target.id);
     const id = event.target.id;
     console.log(id);
     api.deleteBookmark(id)
@@ -122,12 +121,16 @@ const toggleHidden = function() {
 };
 
 const bookmarkItem = function(bookmark) {
+  let hearts = '';
+  for (let i = 0; i < bookmark.rating; i++) {
+    hearts += '&hearts;';
+  }
   return `
   <section id="${bookmark.id}" class="single-bookmark">
     <div class="bookmark-info">
       <div class="rating-title">
         <p class="bookmark-name">${bookmark.title}</p>
-        <p class="bookmark-rating">${bookmark.rating}</p>
+        <p class="bookmark-rating">${hearts}</p>
       </div>
       <div class="bookmark-buttons flex-column">
         <button class="deleteBookmark" type="submit" name="delete-bookmark" id="${bookmark.id}">Delete</button>
@@ -174,14 +177,8 @@ const backToMain = function() {
 
 const render = function() {
   console.log('bookmarks.render called!');
-  // Filter item list by STORE minRating value
   let bookmarks = [...store.bookmarks];
   console.log(bookmarks);
-  // if (store.STORE.minRating) {
-  //   bookmarks = bookmarks.filter(item => item.rating >= store.STORE.minRating);
-  //   console.log(store.STORE);
-  // }
-  // render the shopping list in the DOM
   if (store.filterValue) {
     bookmarks = bookmarks.filter(item => item.rating >= store.filterValue);
     console.log(store.STORE);
@@ -189,14 +186,9 @@ const render = function() {
   const bookmarksString=generateBookmarks(bookmarks);
   const currentView=templateGenerator();
   $('main').html(`${currentView}${bookmarksString}`);
-  // insert that HTML into the DOM
   console.log('bookmarks.render ran!');
-}
+};
 
-// const render = function() {
-//   const currentView = templateGenerator();
-//   $('main').html(currentView);
-// };
 
 
 export default {

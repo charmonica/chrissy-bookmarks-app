@@ -1,6 +1,7 @@
 const bookmarks= [];
 const addBookmarkForm= false;
 const filterValue= 0;
+let error = 'Something went wrong!';
 
 
 const pushToStore = function(result) {
@@ -28,5 +29,6 @@ export default {
   findToDelete,
   bookmarks,
   addBookmarkForm,
-  filterValue
+  filterValue,
+  error
 };

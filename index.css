@@ -1,12 +1,18 @@
-/* Placeholder */
+@import url('https://fonts.googleapis.com/css2?family=Dosis&family=Indie+Flower&display=swap');
+header {
+  font-family: 'Indie Flower', cursive;
+}
+
 body {
   margin: auto;
   max-width: 1000px;
 }
 
 section {
+  font-family: 'Dosis', sans-serif;
   padding: 20px;
   border: solid black 1px;
+  border-radius: 5px;
   margin: 10px;
 }
 
