@@ -16,3 +16,7 @@ section {
 .flex-column {
   flex-direction: column;
 }
+
+.hidden {
+  display: none;
+}

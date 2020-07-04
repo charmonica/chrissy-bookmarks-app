@@ -1,11 +1,32 @@
+const bookmarks= [];
+const addBookmarkForm= false;
+const filterValue= 0;
 
-const bookmarks = [];
 
-let addBookmarkForm = false;
-let expandedView = false;
-
-const pushToStore = function() {
-  this.bookmarks.push(result)
+const pushToStore = function(result) {
+  this.bookmarks.push(result);
 };
 
-export default {pushToStore};
+const findToDelete = function(id) {
+  console.log(this);
+  this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
+  console.log(this.bookmarks);
+};
+
+const findById = function (id) {
+  return this.bookmarks.find((currentItem) => currentItem.id === id);
+};
+
+function setFilter(value) {
+  this.filterValue = value;
+}
+
+export default {
+  pushToStore,
+  findById,
+  setFilter,
+  findToDelete,
+  bookmarks,
+  addBookmarkForm,
+  filterValue
+};
