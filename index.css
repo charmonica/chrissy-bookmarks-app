@@ -22,6 +22,10 @@ section {
   justify-content: center;
 }
 
+.error {
+  color: firebrick;
+}
+
 .borderless {
   border: none;
 }
@@ -29,14 +33,17 @@ section {
 div {
   padding-left: 7px;
   padding-right: 7px;
+  font-family: 'Dosis', sans-serif;
 }
 
 form {
   flex-direction: column;
 }
 
-form {
-  flex-direction: row;
+
+ul {
+  border: solid black 2px;
+  padding-bottom: 5px;
 }
 
 textarea {
@@ -49,10 +56,6 @@ textarea {
 
 .flex-row {
   flex-direction: row;
-}
-
-.hidden {
-  display: none;
 }
 
 .title {

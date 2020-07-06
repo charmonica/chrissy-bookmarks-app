@@ -1,11 +1,15 @@
 const bookmarks= [];
 const addBookmarkForm= false;
 const filterValue= 0;
-let error = 'Something went wrong!';
+let error = '';
 
 
 const pushToStore = function(result) {
-  this.bookmarks.push(result);
+  console.log('pushToStore fired');
+  const detailedView = {detailedView: false},
+    newBkmrk = Object.assign(result, detailedView);
+  this.bookmarks.push(newBkmrk);
+  console.log(newBkmrk);
 };
 
 const findToDelete = function(id) {

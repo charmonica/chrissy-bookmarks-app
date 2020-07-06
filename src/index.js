@@ -18,7 +18,9 @@ function main() {
   bookmarkList.render();
   bookmarkList.filterValueSet();
   bookmarkList.resetFilter();
-  bookmarkList.toggleHidden();
+  bookmarkList.toggleDetailedViewOn();
+  bookmarkList.toggleDetailedViewOff();
+  bookmarkList.renderError();
 }
 
 $(main);

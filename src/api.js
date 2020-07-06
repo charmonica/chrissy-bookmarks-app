@@ -30,6 +30,7 @@ const createNewBookmark = function(title, url, rating, desc) {
     desc: desc,
     rating: rating
   };
+
   console.log(newBookmark);
   return listApiFetch(`${BASE_URL}/bookmarks`, {
     method: 'POST',

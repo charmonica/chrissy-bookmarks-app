@@ -1,5 +1,9 @@
 App by Chrissy Harmon
 
+Very simple app for keeping track of bookmarks manually. 
+
+Live App Link: https://thinkful-ei-panda.github.io/chrissy-bookmarks-app/
+
 User stories completed:
 
 1. I can see a list of my bookmarks when I first open the app
